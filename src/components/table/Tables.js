@@ -1,220 +1,6 @@
 // import React,{useState, useEffect} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import {Data} from './data_table'
-// import Datatable from 'react-data-table-component'
-// import {column, paginacionOption} from './datatable.controller'
-// import Checkbox from '@material-ui/core/Checkbox'
-// import * as FaIcons from 'react-icons/fa';
-// import * as AiIcons from 'react-icons/ai';
-// // import Formulario from '../form/Formulario'
-// import {
-//   Card,
-//   Row,
-//   Col,
-//   Button,
-//   Container,
-//   Form,
-//   FormGroup,
-//   Label,
-//   Input} from 'reactstrap'
-//
-// //   const paginacionOption = {
-// //   rowsPerPageText: 'Filas por página:',
-// //   rangeSeparatorText: 'de',
-// //   noRowsPerPage: false,
-// //   selectAllRowsItem: true,
-// //   selectAllRowsItemText: 'Todos'
-// // }
-//
-// class Tables extends React.Component {
-//   state={
-//       Nombre: '',
-//       Apellido: '',
-//       Identificacion: '',
-//       Rol: '',
-//       Estado:'',
-//       Telefono:'',
-//       Contraseña: '',
-//       email: '',
-//       Datos: [],
-//       columnas:[],
-//       Action:false
-//     }
-//
-//     // const [Action]= useState([]);
-//
-//   Edit=()=>{
-//     this.setState({Action:true})
-//     console.log(this.state.Action);
-//   }
-//   Delete=()=>{
-//     this.setState({Action:false})
-//     console.log(this.state.Action);
-//   }
-//
-//   onChange = async e=>{
-//     e.persist();
-//     await this.setState({[e.target.name]: e.target.value});
-//   }
-//
-//   SetColumns=()=>{
-//     this.setState((state) => {
-//     // Importante: lee `state` en vez de `this.state` al actualizar.
-//     return {columnas: column}
-//   });
-//     console.log(this.state.columnas);
-//   }
-//
-//   FilterItems=()=>{
-//   var search = Data.filter(item=>{
-//     if(item.Nombre.includes(this.state.Nombre) ||
-//     item.Apellido.includes(this.state.Apellido) ||
-//     item.Identificacion.includes(this.state.Identificacion)||
-//     item.Rol.includes(this.state.Rol)||
-//     item.Estado.includes(this.state.Estado)||
-//     item.Telefono.includes(this.state.Telefono)||
-//     item.Contraseña.includes(this.state.Contraseña)||
-//     item.email.includes(this.state.email))
-//       {
-//         return item;
-//       }
-//     });
-//     console.log(search);
-//     this.setState({Datos: search});
-//     console.log(this.state.Datos);
-//   }
-//
-//   createIndex=()=>{
-//     var i = 1;
-//       Data.map(item =>{
-//         item["id"]=i;
-//         i++;
-//       })
-//   }
-//    componentDidMount(){
-//      this.createIndex();
-//      this.SetColumns();
-//      this.setState({Datos: Data});
-//    }
-//
-//   render() {
-//     return (
-//           <Row xs="2">
-//             <Col sm ="9">
-//               <Card body>
-//                 <Datatable
-//                   columns = {column}
-//                   data = {this.state.Datos}
-//                   title = "Usuarios"
-//                   pagination
-//                   paginationComponentOptions = {paginacionOption}
-//                   />
-//               </Card>
-//             </Col>
-//             <Col sm ="3">
-//               <Card body>
-//                     <Label>Nombre</Label>
-//                     <Input
-//                       type="text"
-//                       className="textField"
-//                       name="Nombre"
-//                       id="Nombre"
-//                       placeholder="Nombre"
-//                       value={this.state.Nombre}
-//                       onChange={this.onChange}
-//                       />
-//
-//                     <Label >Apellido</Label>
-//                     <Input
-//                       type="text"
-//                       name="Apellido"
-//                       id="Apellido"
-//                       className="textField"
-//                       placeholder="Apellido"
-//                       value={this.state.Apellido}
-//                       onChange={this.onChange}
-//                     />
-//
-//                   <Label >Identificación (C.C)</Label>
-//                     <Input
-//                       type="text"
-//                       name="Identificacion"
-//                       id="Identificacion"
-//                       placeholder="Identificación"
-//                       className="textField"
-//                       value={this.state.Identificacion}
-//                       onChange={this.onChange}
-//                     />
-//
-//                     <Label >Rol asociado</Label>
-//                     <Input
-//                       type="text"
-//                       name="Rol"
-//                       id="Rol"
-//                       placeholder="Rol"
-//                       className="textField"
-//                       value={this.state.Rol}
-//                       onChange={this.onChange}
-//                     />
-//
-//                     <Label >Estado</Label>
-//                     <Input
-//                       type="text"
-//                       name="Estado"
-//                       id="Estado"
-//                       placeholder="Estado"
-//                       className="textField"
-//                       value={this.state.Estado}
-//                       onChange={this.onChange}
-//                     />
-//
-//                     <Label>Contraseña</Label>
-//                     <Input
-//                       type="text"
-//                       name="Contraseña"
-//                       placeholder="Contraseña"
-//                       id="Contraseña"
-//                       className="textField"
-//                       value={this.state.Contraseña}
-//                       onChange={this.onChange}
-//                     />
-//
-//                     <Label>Teléfono</Label>
-//                     <Input
-//                       type="Telefono"
-//                       name="Telefono"
-//                       id="Telefono"
-//                       placeholder="Telefono"
-//                       className="textField"
-//                       value={this.state.Telefono}
-//                       onChange={this.onChange}
-//                     />
-//
-//                     <Label>Email</Label>
-//                     <Input
-//                       type="email"
-//                       name="email"
-//                       id="email"
-//                       placeholder="xxxxxx@email.com"
-//                       className="textField"
-//                       value={this.state.email}
-//                       onChange={this.onChange}
-//                     />
-//
-//                   <Button type="btn" onClick={this.FilterItems}>Filtrar</Button>
-//                   <Button >Limpiar</Button>
-//               </Card>
-//             </Col>
-//           </Row>
-//
-//
-//
-//     );
-//   }
-// }
-//
-// export default Tables;
-
 import React from "react";
 // import logo from "./logo.svg";
 // import "./App.css";
@@ -253,8 +39,14 @@ class Tables extends React.Component {
     columnas:[],
     form: {
       id: "",
-      personaje: "",
-      anime: "",
+      Nombre: "",
+      Apellido: "",
+      Identificacion: "",
+      Rol: "",
+      Estado:"",
+      Telefono:"",
+      Contraseña: "",
+      email: "",
     },
   };
 
@@ -538,29 +330,101 @@ class Tables extends React.Component {
 
             <FormGroup>
               <label>
-                Personaje:
+                Nombre:
               </label>
               <input
                 className="form-control"
-                name="personaje"
+                name="Nombre"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.personaje}
+                value={this.state.form.Nombre}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Apellido:
+              </label>
+              <input
+                className="form-control"
+                name="Apellido"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.Apellido}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Identificación:
+              </label>
+              <input
+                className="form-control"
+                name="Identificacion"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.Identificacion}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Rol:
+              </label>
+              <input
+                className="form-control"
+                name="Rol"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.Rol}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Estado:
+              </label>
+              <input
+                className="form-control"
+                name="Estado"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.Estado}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Teléfono:
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                name="Telefono"
+                onChange={this.handleChange}
+                value={this.state.form.Telefono}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+              </label>
+              Contraseña:
+              <input
+                className="form-control"
+                name="Contraseña"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.Contraseña}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+              </label>
+              email:
+              <input
+                className="form-control"
+                name="email"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.email}
               />
             </FormGroup>
 
-            <FormGroup>
-              <label>
-                Anime:
-              </label>
-              <input
-                className="form-control"
-                name="anime"
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.form.anime}
-              />
-            </FormGroup>
           </ModalBody>
 
           <ModalFooter>
@@ -579,51 +443,115 @@ class Tables extends React.Component {
           </ModalFooter>
         </Modal>
 
-
-
         <Modal isOpen={this.state.modalInsertar}>
           <ModalHeader>
-           <div><h3>Insertar Personaje</h3></div>
+           <div><h3>Insertar Usuario</h3></div>
           </ModalHeader>
 
-          <ModalBody>
-            <FormGroup>
-              <label>
-                Id:
-              </label>
+            <ModalBody>
+              <FormGroup>
+                <label>
+                 Id:
+                </label>
 
-              <input
-                className="form-control"
-                readOnly
-                type="text"
-                value={this.state.data.length+1}
-              />
-            </FormGroup>
+                <input
+                  className="form-control"
+                  readOnly
+                  type="text"
+                  value={this.state.data.length+1}
+                />
+              </FormGroup>
 
-            <FormGroup>
-              <label>
-                Personaje:
-              </label>
-              <input
-                className="form-control"
-                name="personaje"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
+              <FormGroup>
+                <label>
+                  Nombre:
+                </label>
+                <input
+                  className="form-control"
+                  name="Nombre"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  Apellido:
+                </label>
+                <input
+                  className="form-control"
+                  name="Apellido"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  Identificación:
+                </label>
+                <input
+                  className="form-control"
+                  name="Identificacion"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  Rol:
+                </label>
+                <input
+                  className="form-control"
+                  name="Rol"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  Estado:
+                </label>
+                <input
+                  className="form-control"
+                  name="Estado"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  Teléfono:
+                </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="Telefono"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                </label>
+                Contraseña:
+                <input
+                  className="form-control"
+                  name="Contraseña"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>
+                </label>
+                email:
+                <input
+                  className="form-control"
+                  name="email"
+                  type="text"
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
 
-            <FormGroup>
-              <label>
-                Anime:
-              </label>
-              <input
-                className="form-control"
-                name="anime"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-          </ModalBody>
+            </ModalBody>
 
           <ModalFooter>
             <Button
@@ -645,3 +573,219 @@ class Tables extends React.Component {
   }
 }
 export default Tables;
+
+
+
+// import Datatable from 'react-data-table-component'
+// import {column, paginacionOption} from './datatable.controller'
+// import Checkbox from '@material-ui/core/Checkbox'
+// import * as FaIcons from 'react-icons/fa';
+// import * as AiIcons from 'react-icons/ai';
+// // import Formulario from '../form/Formulario'
+// import {
+//   Card,
+//   Row,
+//   Col,
+//   Button,
+//   Container,
+//   Form,
+//   FormGroup,
+//   Label,
+//   Input} from 'reactstrap'
+//
+// //   const paginacionOption = {
+// //   rowsPerPageText: 'Filas por página:',
+// //   rangeSeparatorText: 'de',
+// //   noRowsPerPage: false,
+// //   selectAllRowsItem: true,
+// //   selectAllRowsItemText: 'Todos'
+// // }
+//
+// class Tables extends React.Component {
+//   state={
+//       Nombre: '',
+//       Apellido: '',
+//       Identificacion: '',
+//       Rol: '',
+//       Estado:'',
+//       Telefono:'',
+//       Contraseña: '',
+//       email: '',
+//       Datos: [],
+//       columnas:[],
+//       Action:false
+//     }
+//
+//     // const [Action]= useState([]);
+//
+//   Edit=()=>{
+//     this.setState({Action:true})
+//     console.log(this.state.Action);
+//   }
+//   Delete=()=>{
+//     this.setState({Action:false})
+//     console.log(this.state.Action);
+//   }
+//
+//   onChange = async e=>{
+//     e.persist();
+//     await this.setState({[e.target.name]: e.target.value});
+//   }
+//
+//   SetColumns=()=>{
+//     this.setState((state) => {
+//     // Importante: lee `state` en vez de `this.state` al actualizar.
+//     return {columnas: column}
+//   });
+//     console.log(this.state.columnas);
+//   }
+//
+//   FilterItems=()=>{
+//   var search = Data.filter(item=>{
+//     if(item.Nombre.includes(this.state.Nombre) ||
+//     item.Apellido.includes(this.state.Apellido) ||
+//     item.Identificacion.includes(this.state.Identificacion)||
+//     item.Rol.includes(this.state.Rol)||
+//     item.Estado.includes(this.state.Estado)||
+//     item.Telefono.includes(this.state.Telefono)||
+//     item.Contraseña.includes(this.state.Contraseña)||
+//     item.email.includes(this.state.email))
+//       {
+//         return item;
+//       }
+//     });
+//     console.log(search);
+//     this.setState({Datos: search});
+//     console.log(this.state.Datos);
+//   }
+//
+//   createIndex=()=>{
+//     var i = 1;
+//       Data.map(item =>{
+//         item["id"]=i;
+//         i++;
+//       })
+//   }
+//    componentDidMount(){
+//      this.createIndex();
+//      this.SetColumns();
+//      this.setState({Datos: Data});
+//    }
+//
+//   render() {
+//     return (
+//           <Row xs="2">
+//             <Col sm ="9">
+//               <Card body>
+//                 <Datatable
+//                   columns = {column}
+//                   data = {this.state.Datos}
+//                   title = "Usuarios"
+//                   pagination
+//                   paginationComponentOptions = {paginacionOption}
+//                   />
+//               </Card>
+//             </Col>
+//             <Col sm ="3">
+//               <Card body>
+//                     <Label>Nombre</Label>
+//                     <Input
+//                       type="text"
+//                       className="textField"
+//                       name="Nombre"
+//                       id="Nombre"
+//                       placeholder="Nombre"
+//                       value={this.state.Nombre}
+//                       onChange={this.onChange}
+//                       />
+//
+//                     <Label >Apellido</Label>
+//                     <Input
+//                       type="text"
+//                       name="Apellido"
+//                       id="Apellido"
+//                       className="textField"
+//                       placeholder="Apellido"
+//                       value={this.state.Apellido}
+//                       onChange={this.onChange}
+//                     />
+//
+//                   <Label >Identificación (C.C)</Label>
+//                     <Input
+//                       type="text"
+//                       name="Identificacion"
+//                       id="Identificacion"
+//                       placeholder="Identificación"
+//                       className="textField"
+//                       value={this.state.Identificacion}
+//                       onChange={this.onChange}
+//                     />
+//
+//                     <Label >Rol asociado</Label>
+//                     <Input
+//                       type="text"
+//                       name="Rol"
+//                       id="Rol"
+//                       placeholder="Rol"
+//                       className="textField"
+//                       value={this.state.Rol}
+//                       onChange={this.onChange}
+//                     />
+//
+//                     <Label >Estado</Label>
+//                     <Input
+//                       type="text"
+//                       name="Estado"
+//                       id="Estado"
+//                       placeholder="Estado"
+//                       className="textField"
+//                       value={this.state.Estado}
+//                       onChange={this.onChange}
+//                     />
+//
+//                     <Label>Contraseña</Label>
+//                     <Input
+//                       type="text"
+//                       name="Contraseña"
+//                       placeholder="Contraseña"
+//                       id="Contraseña"
+//                       className="textField"
+//                       value={this.state.Contraseña}
+//                       onChange={this.onChange}
+//                     />
+//
+//                     <Label>Teléfono</Label>
+//                     <Input
+//                       type="Telefono"
+//                       name="Telefono"
+//                       id="Telefono"
+//                       placeholder="Telefono"
+//                       className="textField"
+//                       value={this.state.Telefono}
+//                       onChange={this.onChange}
+//                     />
+//
+//                     <Label>Email</Label>
+//                     <Input
+//                       type="email"
+//                       name="email"
+//                       id="email"
+//                       placeholder="xxxxxx@email.com"
+//                       className="textField"
+//                       value={this.state.email}
+//                       onChange={this.onChange}
+//                     />
+//
+//                   <Button type="btn" onClick={this.FilterItems}>Filtrar</Button>
+//                   <Button >Limpiar</Button>
+//               </Card>
+//             </Col>
+//           </Row>
+//
+//
+//
+//     );
+//   }
+// }
+//
+// export default Tables;
